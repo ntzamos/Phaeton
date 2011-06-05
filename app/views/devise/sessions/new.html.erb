@@ -1,0 +1,14 @@
+<%= resource.errors.full_messages.map { |msg| content_tag(:p, msg, :class => "highlight-1") }.join.html_safe %>
+<h1>Sign in</h1>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name) ) do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br/>
+
+  <%= f.submit "Sign in", :class => 'button' %>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

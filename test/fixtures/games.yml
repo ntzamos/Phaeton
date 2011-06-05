@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  smallname: MyString
+  statement: MyText
+  inputdetails: MyText
+  outputdetails: MyText
+  requirements: MyText
+  author: MyString
+
+two:
+  name: MyString
+  smallname: MyString
+  statement: MyText
+  inputdetails: MyText
+  outputdetails: MyText
+  requirements: MyText
+  author: MyString

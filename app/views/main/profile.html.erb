@@ -1,0 +1,5 @@
+<% if User.exists?(params[:username]) %>
+	<h1>Hi, I'm <%= User.find(params[:username]).username %></h1>
+<% else %>
+	<h1>404 - Page Not Found</h1>
+<% end %>

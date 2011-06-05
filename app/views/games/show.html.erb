@@ -1,0 +1,20 @@
+<h1><%= @game.name %></h1>
+				
+				<section class="meta">
+				<p>Author: <a href="http://www.jabz.info/contact/jonas-jared-jacek/"><%= @game.author %></a> | Date: <%=@game.created_at.strftime("%a %e, %b %Y") %> | Comments: <a href="#">7</a></p>
+				<p>Tags: <a href="#" rel="tag"><%= @game.smallname %></a>, <a href="#" rel="tag">2-player</a></p>
+				</section>
+				
+				<p><%= @game.statement.html_safe %></p>
+				
+				<h3>Input Format</h3>
+				<p><%= @game.inputdetails %></p>
+				
+				<h3>Output Format</h3>
+				<p><%= @game.outputdetails %></p>
+				
+				<h3>Requirements</h3>
+				<p><%= @game.requirements %></p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

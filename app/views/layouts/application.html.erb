@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phaeton</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :all %>
+<%= javascript_include_tiny_mce_if_used %> <%= tiny_mce if using_tiny_mce? %>
+  <%= csrf_meta_tag %>
+  <script type='text/javascript'> 
+	jQuery(document).ready(function($){
+		// set up the options to be used for jqDock...
+		var dockOptions =
+			{ align: 'top' // horizontal topmenu, with expansion DOWN from a fixed TOP edge
+			, size: 38 //increase 'at rest' size to 50px
+			, labels: true  // add labels (defaults to 'br')
+			, inactivity: 3000
+			, distance: 50
+			};
+		// ...and apply...
+		$('#topmenu').jqDock(dockOptions);
+	});
+  </script> 
+</head>
+<body>
+	<div id='topmenu'> 
+		<%=link_to image_tag("png/48x48/home.png", :title => "Home"), root_path%>
+		<%=link_to image_tag("png/48x48/card.png", :title => "Games"), games_path%>
+		<%=image_tag("png/48x48/puzzle.png", :title => "Problems")%>
+		<%=image_tag("png/48x48/pie_chart.png", :title => "Statistics")%>
+		<%=link_to image_tag("png/48x48/help.png", :title => "About Us"), about_path%>
+	</div>
+	<div id="a">
+		<header>
+			<div>
+<% quotes = ["Get Excited!", "Be Awesome!", "Improve yourself.",
+ "Overcome Your Fears!", "Challenge your Enemies!", "Have faith!", "Fight On!",
+ "Be Patient...", "Win The Game!!!"] %>
+<%= quotes[ rand( quotes.size ) ] %>
+
+			</div>
+		</header>
+		<div id="b">
+			<article>
+				<% if !alert.nil? %>
+					<p class="highlight-1"><strong>Alert:</strong> <%= alert %></p>
+				<% end %>
+				<% if !notice.nil? %>
+					<p class="highlight-3"><strong>Success:</strong> <%= notice %></p>
+				<% end %>
+				<%= yield %>
+			</article>
+			<aside>
+				
+				<%= render :partial => "partials/logininfo" %>
+				
+				
+				<h4>Online Users</h4>
+				<ul class="gallery">
+					<li><a href="index.html"><%=image_tag("jonas-jacek.png")%></a></li>
+					<li><a href="index.html"><%=image_tag("img2.png")%></a></li>
+					<li><a href="index.html"><%=image_tag("img3.png")%></a></li>
+				</ul>
+				<ul class="gallery">
+					<li><a href="index.html"><%=image_tag("img4.png")%></a></li>
+					<li><a href="index.html"><%=image_tag("img5.png")%></a></li>
+					<li><a href="index.html"><%=image_tag("img6.png")%></a></li>
+				</ul>
+				<h4>Sponsors</h4> 
+				<div class="adspace"> 
+					<a href="http://www.jabz.biz/" rel="me"><%=image_tag("jabz-logo.png")%></a> 
+				</div>
+				
+				<h4>Tag Cloud</h4>
+				<ul id="tagcloud">
+					<li class="tagcloudsize-1"><a href="#">Dynamic Programming</a></li>
+					<li class="tagcloudsize-2"><a href="#">Ipsum</a></li>
+					<li class="tagcloudsize-3"><a href="#">Dolor</a></li>
+					<li class="tagcloudsize-2"><a href="#">Sit Amet</a></li>
+					<li class="tagcloudsize-1"><a href="#">Consectetur</a></li>
+				</ul> 
+				
+			</aside>
+		</div>
+		<footer>
+			<p>Copyright 2011 - Phaeton</p>
+		</footer>
+	</div>
+</body>
+</html>

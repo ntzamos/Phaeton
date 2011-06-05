@@ -1,0 +1,48 @@
+<h1>Connect 4</h1>
+				
+				<section class="meta">
+				<p>Author: <a href="http://www.jabz.info/contact/jonas-jared-jacek/">Jonas Jacek</a> | Date: 2010-01-21 | Comments: <a href="#">7</a></p>
+				<p>Tags: <a href="#" rel="tag">Connect 4</a>, <a href="#" rel="tag">2-player</a></p>
+				</section>
+				
+				<cite><a href="http://en.wikipedia.org/wiki/Connect_Four">Wikipedia</a> wrote:</cite>
+				<blockquote cite="http://en.wikipedia.org/wiki/Connect_Four">
+				Connect 4 is a two-player game in which the players first choose a color and then take turns dropping their colored discs from the top into a seven-column, six-row vertically-suspended grid. The pieces fall straight down, occupying the next available space within the column. The object of the game is to connect four of one's own discs of the same color next to each other vertically, horizontally, or diagonally before one's opponent can do so.
+				</blockquote>
+				<p>In this task you are asked to implement a program that plays connect 4.</p>
+				
+				<h3>Input Format</h3>
+				<p>A single integer will be given each time with the column that the opponent chose.</p>
+				
+				<h3>Output Format</h3>
+				<p>A single integer must be given each time with the column that your program chose.</p>
+				
+				<table>
+					<caption>Example play</caption>
+					<tbody>
+							<tr>
+								<th>Red</th>
+								<th>Blue</th>
+								<th>Explanation</th>
+							</tr>
+						    	<tr>
+								<td>4</td>
+								<td>-</td>
+								<td>Red player drops a piece in column 4</td>
+						    	</tr>
+						    	
+						    	<tr>
+								<td>-</td>
+								<td>3</td>
+								<td>Blue player drops a piece in column 3</td>
+						    	</tr>
+						</tbody>
+				</table>
+
+<h1>Index</h1>
+
+<h2>List of Users</h2>
+
+<% for user in User.all %>
+	<h4><%= link_to user.username, user %></h4>
+<% end %>

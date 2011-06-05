@@ -1,0 +1,18 @@
+		<% if user_signed_in? %>
+
+<div id="c">
+					<p>Logged in as <%= link_to current_user.username, current_user %></p>
+					<%= link_to "Sign out", destroy_user_session_path %> | <%= link_to "Edit Account", edit_user_registration_path %>
+				</div>
+
+		<% else %>
+<%= form_for("user", :url => user_session_path, :html => { :class => 's' } ) do |f| %>
+
+  <%= f.text_field :username, :onclick => "this.value = '';", :value => 'Username' %>
+  <%= f.password_field :password, :onclick => "this.value = '';", :value =>'Password' %>
+
+
+<%= link_to "Register",  new_user_registration_path %> | 
+  <%= f.submit "Sign in", :class => 'btn'  %>
+<% end %>
+<% end %>
