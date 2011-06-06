@@ -5,25 +5,29 @@
 				<p>Tags: <a href="#" rel="tag"><%= @game.smallname %></a>, <a href="#" rel="tag">2-player</a></p>
 				</section>
 				
-				<%= @game.statement.html_safe %>
+				<%= sanitize(RedCloth.new(@game.statement, [:filter_styles, :filter_html, :filter_classes, :filter_ids]).to_html) %>
 				
 				<h3>Input Format</h3>
-				<p><%= @game.inputdetails %></p>
+				<%= sanitize(RedCloth.new(@game.inputdetails, [:filter_styles, :filter_html, :filter_classes, :filter_ids]).to_html) %>
 				
 				<h3>Output Format</h3>
-				<p><%= @game.outputdetails %></p>
+				<%= sanitize(RedCloth.new(@game.outputdetails, [:filter_styles, :filter_html, :filter_classes, :filter_ids]).to_html) %>
 				
 				<h3>Requirements</h3>
-				<p><%= @game.requirements %></p>
+				<%= sanitize(RedCloth.new(@game.requirements, [:filter_styles, :filter_html, :filter_classes, :filter_ids]).to_html) %>
 
 <h4 id="comments">Comments</h4>
 
 <% for comment in @comments %>
-<section class="meta">
-		<%= link_to image_tag(comment.user.photo.url(:thumb), :title => comment.user.username), comment.user %>
-				<p><b><%= comment.title %></b></p>
-				<p>by <%= link_to comment.user.username, comment.user %> at <%=comment.created_at.strftime("%a %e, %b %Y %H:%M") %></p>
-				<p><%= comment.comment %></p>
+<section class="comment">
+				<div class="chead">
+					<%= link_to image_tag(comment.user.photo.url(:thumb), :title => comment.user.username), comment.user %>
+					<p class="ctitle"><b><%= comment.title %></b></p>
+					<p>by <%= link_to comment.user.username, comment.user %> at <%=comment.created_at.strftime("%a %e, %b %Y %H:%M") %></p>
+				</div>
+				<div class="cbody">
+				<%= sanitize(RedCloth.new(comment.comment, [:filter_styles, :filter_html, :filter_classes, :filter_ids]).to_html) %>
+				</div>
 				</section>
 <% end %>
 

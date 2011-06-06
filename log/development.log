@@ -25800,3 +25800,2097 @@ Rendered partials/_onlineusers.html.erb (7.0ms)
   [1m[36mUser Load (8.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
 Rendered games/show.html.erb within layouts/application (124.8ms)
 Completed 200 OK in 412ms (Views: 120.3ms | ActiveRecord: 18.7ms)
+
+
+Started GET "/" for 192.168.1.103 at 2011-06-06 14:49:31 +0300
+  Processing by MainController#index as HTML
+Rendered partials/_logininfo.html.erb (4.4ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 11:44:31.710346') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (4.6ms)
+  [1m[36mUser Load (9.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered main/index.html.erb within layouts/application (137.2ms)
+Completed 200 OK in 175ms (Views: 135.8ms | ActiveRecord: 10.9ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.103 at 2011-06-06 14:51:24 +0300
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IOhPix0MhaW76KS7Bc2mJurRWYxiP9JG9eLKY2NSYsw=", "user"=>{"username"=>"rania", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mSQL (1.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = 'rania' LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2011-06-06 11:51:25.562700', "current_sign_in_ip" = '192.168.1.103', "sign_in_count" = 2, "updated_at" = '2011-06-06 11:51:25.563706' WHERE "users"."id" = 18[0m
+[paperclip] Saving attachments.
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 11:51:25.682232', "updated_at" = '2011-06-06 11:51:25.682841' WHERE "users"."id" = 18
+[paperclip] Saving attachments.
+Redirected to http://192.168.1.100:3000/
+Completed 302 Found in 808ms
+
+
+Started GET "/" for 192.168.1.103 at 2011-06-06 14:51:32 +0300
+  Processing by MainController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mAREL (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 11:51:32.433151', "updated_at" = '2011-06-06 11:51:32.434000' WHERE "users"."id" = 18
+[paperclip] Saving attachments.
+Rendered partials/_logininfo.html.erb (3.0ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 11:46:32.529132') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (18.6ms)
+  [1m[35mUser Load (7.4ms)[0m  SELECT "users".* FROM "users"
+Rendered main/index.html.erb within layouts/application (47.2ms)
+Completed 200 OK in 252ms (Views: 45.6ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/games" for 192.168.1.103 at 2011-06-06 14:53:44 +0300
+  Processing by GamesController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 11:53:44.526607', "updated_at" = '2011-06-06 11:53:44.527403' WHERE "users"."id" = 18
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.5ms)[0m  [1mSELECT "games".* FROM "games"[0m
+Rendered partials/_logininfo.html.erb (4.2ms)
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 11:48:44.744697') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (8.2ms)
+  [1m[36mUser Load (10.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/index.html.erb within layouts/application (75.8ms)
+Completed 200 OK in 325ms (Views: 73.1ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/games/1" for 192.168.1.103 at 2011-06-06 14:54:12 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 11:54:13.116257', "updated_at" = '2011-06-06 11:54:13.116958' WHERE "users"."id" = 18[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__725191855_88097740_778182345 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (3.5ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 11:49:13.417631') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (7.2ms)
+  [1m[36mUser Load (44.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (149.9ms)
+Completed 200 OK in 478ms (Views: 109.9ms | ActiveRecord: 51.9ms)
+
+
+Started POST "/games/1/comment" for 192.168.1.103 at 2011-06-06 14:56:18 +0300
+  Processing by GamesController#comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IOhPix0MhaW76KS7Bc2mJurRWYxiP9JG9eLKY2NSYsw=", "comment"=>{"title"=>"Phaeton site", "comment"=>"Teleio to site sas paidia!\r\nsent from my mobile!"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 11:56:18.518902', "updated_at" = '2011-06-06 11:56:18.519937' WHERE "users"."id" = 18[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.7ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "comments" ("title", "comment", "commentable_id", "commentable_type", "user_id", "created_at", "updated_at") VALUES ('Phaeton site', 'Teleio to site sas paidia!
+sent from my mobile!', NULL, NULL, 18, '2011-06-06 11:56:18.694934', '2011-06-06 11:56:18.694934')[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE "comments" SET "commentable_id" = 1, "commentable_type" = 'Game', "updated_at" = '2011-06-06 11:56:18.895102' WHERE "comments"."id" = 19
+Redirected to http://192.168.1.100:3000/games/1
+Completed 302 Found in 597ms
+
+
+Started GET "/games/1" for 192.168.1.103 at 2011-06-06 14:56:24 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 11:56:25.108945', "updated_at" = '2011-06-06 11:56:25.109637' WHERE "users"."id" = 18
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.7ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__725191855_84704140_778182345 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (3.9ms)
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 11:51:25.403221') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (8.8ms)
+  [1m[36mUser Load (10.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (185.5ms)
+Completed 200 OK in 460ms (Views: 174.5ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 14:58:46 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 11:58:46.986995', "updated_at" = '2011-06-06 11:58:46.987983' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__725191855_88006240_778182345 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 11:53:47.353463') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (11.4ms)
+  [1m[35mUser Load (8.0ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (165.9ms)
+Completed 200 OK in 521ms (Views: 159.0ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/users/edit" for 192.168.1.103 at 2011-06-06 15:00:31 +0300
+  Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mAREL (0.8ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 12:00:31.367853', "updated_at" = '2011-06-06 12:00:31.368477' WHERE "users"."id" = 18[0m
+[paperclip] Saving attachments.
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[35mUser Load (2.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 11:55:31.519199') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (10.5ms)
+  [1m[36mUser Load (7.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered devise/registrations/edit.html.erb within layouts/application (50.7ms)
+Completed 200 OK in 247ms (Views: 48.2ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/games/1" for 192.168.1.103 at 2011-06-06 15:01:24 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 12:01:24.309162', "updated_at" = '2011-06-06 12:01:24.310001' WHERE "users"."id" = 18[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__725191855_94739800_778182345 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (2.6ms)
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 11:56:24.624088') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (10.3ms)
+  [1m[35mUser Load (7.4ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (121.2ms)
+Completed 200 OK in 460ms (Views: 115.2ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/users/19" for 192.168.1.103 at 2011-06-06 15:02:02 +0300
+  Processing by MainController#profile as HTML
+  Parameters: {"username"=>"19"}
+  [1m[36mUser Load (5.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 12:02:02.667380', "updated_at" = '2011-06-06 12:02:02.668052' WHERE "users"."id" = 18
+[paperclip] Saving attachments.
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 19 LIMIT 1[0m
+Rendered partials/_logininfo.html.erb (3.0ms)
+  [1m[35mUser Load (2.2ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 11:57:02.776961') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (10.3ms)
+  [1m[36mUser Load (7.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered main/profile.html.erb within layouts/application (44.8ms)
+Completed 200 OK in 238ms (Views: 42.0ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/" for 192.168.1.103 at 2011-06-06 15:03:14 +0300
+  Processing by MainController#index as HTML
+  [1m[35mUser Load (5.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 12:03:14.182928', "updated_at" = '2011-06-06 12:03:14.183727' WHERE "users"."id" = 18[0m
+[paperclip] Saving attachments.
+Rendered partials/_logininfo.html.erb (3.8ms)
+  [1m[35mUser Load (2.9ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 11:58:14.277505') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (12.7ms)
+  [1m[36mUser Load (9.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered main/index.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 253ms (Views: 43.7ms | ActiveRecord: 18.4ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:45:14 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 13:45:15.129068', "updated_at" = '2011-06-06 13:45:15.129899' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_86006570__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:40:15.594046') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.4ms)
+  [1m[35mUser Load (44.5ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (320.3ms)
+Completed 200 OK in 778ms (Views: 276.2ms | ActiveRecord: 55.6ms)
+
+
+Started POST "/games/1/comment" for 127.0.0.1 at 2011-06-06 16:45:49 +0300
+  Processing by GamesController#comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j/1jPm8J0Z6PgYiEUdX0B4QH+Mpdq1wmtCseU9laP3E=", "comment"=>{"title"=>"Red Cloth test", "comment"=>"h1. Give RedCloth a try!\r\n\r\nA *simple* paragraph with\r\na line break, some _emphasis_ and a \"link\":http://redcloth.org\r\n\r\n* an item\r\n* and another\r\n\r\n# one\r\n# two\r\n"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 13:45:49.461432', "updated_at" = '2011-06-06 13:45:49.462272' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "comments" ("title", "comment", "commentable_id", "commentable_type", "user_id", "created_at", "updated_at") VALUES ('Red Cloth test', 'h1. Give RedCloth a try!
+
+A *simple* paragraph with
+a line break, some _emphasis_ and a "link":http://redcloth.org
+
+* an item
+* and another
+
+# one
+# two
+', NULL, NULL, 9, '2011-06-06 13:45:49.654555', '2011-06-06 13:45:49.654555')
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "comments" SET "commentable_id" = 1, "commentable_type" = 'Game', "updated_at" = '2011-06-06 13:45:49.782179' WHERE "comments"."id" = 20[0m
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 536ms
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:45:49 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 13:45:50.023774', "updated_at" = '2011-06-06 13:45:50.024449' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89318000__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (3.5ms)
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:40:50.385757') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (8.3ms)
+  [1m[36mUser Load (10.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (181.6ms)
+Completed 200 OK in 489ms (Views: 173.0ms | ActiveRecord: 23.3ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:46:03 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 13:46:03.687731', "updated_at" = '2011-06-06 13:46:03.688400' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+Rendered games/show.html.erb within layouts/application (143.4ms)
+Completed   in 430ms
+
+ActionView::Template::Error (undefined method `safe_html' for #<String:0x9d9acc0>):
+    23: 		<%= link_to image_tag(comment.user.photo.url(:thumb), :title => comment.user.username), comment.user %>
+    24: 				<p><b><%= comment.title %></b></p>
+    25: 				<p>by <%= link_to comment.user.username, comment.user %> at <%=comment.created_at.strftime("%a %e, %b %Y %H:%M") %></p>
+    26: 				<%= RedCloth.new(comment.comment).to_html.safe_html %>
+    27: 				</section>
+    28: <% end %>
+    29: 
+  app/views/games/show.html.erb:26:in `block in _app_views_games_show_html_erb__270058725_88524760__260508317'
+  app/views/games/show.html.erb:21:in `each'
+  app/views/games/show.html.erb:21:in `_app_views_games_show_html_erb__270058725_88524760__260508317'
+  app/controllers/games_controller.rb:22:in `show'
+
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (33.5ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:46:12 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 13:46:12.999536', "updated_at" = '2011-06-06 13:46:13.000609' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (1.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96168480__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (3.5ms)
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:41:13.306980') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (8.4ms)
+  [1m[36mUser Load (58.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (175.7ms)
+Completed 200 OK in 475ms (Views: 119.0ms | ActiveRecord: 70.3ms)
+
+
+Started POST "/games/1/comment" for 127.0.0.1 at 2011-06-06 16:48:33 +0300
+  Processing by GamesController#comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j/1jPm8J0Z6PgYiEUdX0B4QH+Mpdq1wmtCseU9laP3E=", "comment"=>{"title"=>"test", "comment"=>"p{color:blue;letter-spacing:.5em}. Spacey blue"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 13:48:33.905817', "updated_at" = '2011-06-06 13:48:33.906774' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO "comments" ("title", "comment", "commentable_id", "commentable_type", "user_id", "created_at", "updated_at") VALUES ('test', 'p{color:blue;letter-spacing:.5em}. Spacey blue', NULL, NULL, 9, '2011-06-06 13:48:34.046017', '2011-06-06 13:48:34.046017')[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "comments" SET "commentable_id" = 1, "commentable_type" = 'Game', "updated_at" = '2011-06-06 13:48:34.172067' WHERE "comments"."id" = 21
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 482ms
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:48:34 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 13:48:34.405163', "updated_at" = '2011-06-06 13:48:34.405881' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96674740__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:43:34.721336') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (6.4ms)
+  [1m[36mUser Load (7.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (116.6ms)
+Completed 200 OK in 398ms (Views: 110.7ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:52:36 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 13:52:36.479948', "updated_at" = '2011-06-06 13:52:36.480781' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.7ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96168930__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (2.9ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:47:36.765475') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.4ms)
+  [1m[35mUser Load (53.5ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (161.8ms)
+Completed 200 OK in 433ms (Views: 109.9ms | ActiveRecord: 62.6ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:53:36 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 13:53:36.198492', "updated_at" = '2011-06-06 13:53:36.199174' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Rendered games/show.html.erb within layouts/application (119.8ms)
+Completed   in 428ms
+
+ActionView::Template::Error (undefined method `white_list' for #<#<Class:0xab220c8>:0xab2069c>):
+    23: 		<%= link_to image_tag(comment.user.photo.url(:thumb), :title => comment.user.username), comment.user %>
+    24: 				<p><b><%= comment.title %></b></p>
+    25: 				<p>by <%= link_to comment.user.username, comment.user %> at <%=comment.created_at.strftime("%a %e, %b %Y %H:%M") %></p>
+    26: 				<%= white_list(RedCloth.new(comment.comment, [:filter_styles, :filter_html]).to_html) %>
+    27: 				</section>
+    28: <% end %>
+    29: 
+  app/views/games/show.html.erb:26:in `block in _app_views_games_show_html_erb__270058725_89692590__260508317'
+  app/views/games/show.html.erb:21:in `each'
+  app/views/games/show.html.erb:21:in `_app_views_games_show_html_erb__270058725_89692590__260508317'
+  app/controllers/games_controller.rb:22:in `show'
+
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.5ms)
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.3ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:53:59 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 13:53:59.962402', "updated_at" = '2011-06-06 13:53:59.963329' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (1.7ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96168200__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (3.0ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:49:00.429144') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (6.5ms)
+  [1m[36mUser Load (56.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (339.4ms)
+Completed 200 OK in 623ms (Views: 286.8ms | ActiveRecord: 69.3ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:56:49 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 13:56:50.066127', "updated_at" = '2011-06-06 13:56:50.066897' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89675080__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (2.9ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:51:50.388323') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.8ms)
+  [1m[35mUser Load (7.7ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (188.2ms)
+Completed 200 OK in 482ms (Views: 181.7ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:57:40 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 13:57:41.011217', "updated_at" = '2011-06-06 13:57:41.011895' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89072930__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:52:41.466855') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (6.8ms)
+  [1m[36mUser Load (7.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (187.5ms)
+Completed 200 OK in 605ms (Views: 181.9ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:58:11 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 13:58:11.544824', "updated_at" = '2011-06-06 13:58:11.545629' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96779340__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:53:11.886812') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.4ms)
+  [1m[35mUser Load (8.8ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (135.2ms)
+Completed 200 OK in 458ms (Views: 129.1ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:58:31 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 13:58:32.129662', "updated_at" = '2011-06-06 13:58:32.130465' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.5ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.2ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_95976390__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (4.0ms)
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:53:32.580918') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (8.3ms)
+  [1m[36mUser Load (58.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (201.7ms)
+Completed 200 OK in 614ms (Views: 145.3ms | ActiveRecord: 69.8ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:58:43 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 13:58:43.830010', "updated_at" = '2011-06-06 13:58:43.830878' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.8ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (53.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89882770__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:53:44.203448') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.8ms)
+  [1m[35mUser Load (7.5ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (189.0ms)
+Completed 200 OK in 537ms (Views: 132.4ms | ActiveRecord: 69.4ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 16:58:52 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 13:58:52.244917', "updated_at" = '2011-06-06 13:58:52.245649' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.5ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.1ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89255600__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:30)
+Rendered partials/_logininfo.html.erb (2.9ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:53:52.681946') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (7.2ms)
+  [1m[36mUser Load (8.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (186.2ms)
+Completed 200 OK in 588ms (Views: 179.7ms | ActiveRecord: 20.7ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:00:31 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:00:31.995460', "updated_at" = '2011-06-06 14:00:31.996192' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725__616469498__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (3.0ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:55:32.323743') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.5ms)
+  [1m[35mUser Load (7.8ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (142.2ms)
+Completed 200 OK in 431ms (Views: 136.8ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:02:03 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:02:03.551820', "updated_at" = '2011-06-06 14:02:03.552714' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (4.2ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.8ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96344340__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:57:03.888654') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (6.6ms)
+  [1m[36mUser Load (54.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (172.0ms)
+Completed 200 OK in 489ms (Views: 118.8ms | ActiveRecord: 66.8ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:03:06 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:03:06.489258', "updated_at" = '2011-06-06 14:03:06.490197' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_90171110__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:58:06.871307') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.7ms)
+  [1m[35mUser Load (8.5ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (173.3ms)
+Completed 200 OK in 552ms (Views: 166.5ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:03:19 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:03:19.426042', "updated_at" = '2011-06-06 14:03:19.426779' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.8ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (6.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89353230__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:58:19.769399') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (6.5ms)
+  [1m[36mUser Load (7.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (172.0ms)
+Completed 200 OK in 538ms (Views: 160.5ms | ActiveRecord: 21.7ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:03:37 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:03:38.167760', "updated_at" = '2011-06-06 14:03:38.168644' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.5ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_97233000__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (3.6ms)
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:58:38.513701') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (8.3ms)
+  [1m[35mUser Load (10.6ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (161.1ms)
+Completed 200 OK in 519ms (Views: 153.0ms | ActiveRecord: 21.9ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:03:41 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:03:41.270116', "updated_at" = '2011-06-06 14:03:41.270893' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_97010140__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (3.1ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:58:41.577760') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (7.6ms)
+  [1m[36mUser Load (9.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (128.3ms)
+Completed 200 OK in 420ms (Views: 119.7ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:03:54 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (3.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:03:54.695100', "updated_at" = '2011-06-06 14:03:54.696119' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96226790__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (3.1ms)
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 13:58:55.053875') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (7.1ms)
+  [1m[35mUser Load (54.1ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (168.9ms)
+Completed 200 OK in 551ms (Views: 115.9ms | ActiveRecord: 64.7ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:05:43 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:05:43.548272', "updated_at" = '2011-06-06 14:05:43.549046' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.8ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_90189700__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (3.5ms)
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:00:43.919588') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (8.4ms)
+  [1m[36mUser Load (11.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (187.5ms)
+Completed 200 OK in 608ms (Views: 177.9ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:07:23 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:07:23.531653', "updated_at" = '2011-06-06 14:07:23.532477' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (2.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89521420__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (3.2ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:02:23.916645') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (7.4ms)
+  [1m[35mUser Load (7.5ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (172.0ms)
+Completed 200 OK in 548ms (Views: 163.1ms | ActiveRecord: 18.9ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:07:44 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:07:44.179554', "updated_at" = '2011-06-06 14:07:44.180279' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.8ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725__616439928__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:02:44.570263') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (6.6ms)
+  [1m[36mUser Load (7.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (122.8ms)
+Completed 200 OK in 489ms (Views: 116.9ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:07:53 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:07:53.217626', "updated_at" = '2011-06-06 14:07:53.218428' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96674560__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:02:53.589054') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (7.4ms)
+  [1m[35mUser Load (7.9ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (149.0ms)
+Completed 200 OK in 492ms (Views: 142.9ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:09:20 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:09:20.403575', "updated_at" = '2011-06-06 14:09:20.404474' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.8ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_95737240__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (3.0ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:04:20.735337') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (50.3ms)
+  [1m[36mUser Load (15.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (174.6ms)
+Completed 200 OK in 534ms (Views: 159.8ms | ActiveRecord: 27.9ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:10:42 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:10:42.970995', "updated_at" = '2011-06-06 14:10:42.971682' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89887370__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:05:43.268385') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.6ms)
+  [1m[35mUser Load (7.8ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (173.5ms)
+Completed 200 OK in 445ms (Views: 166.7ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:10:55 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:10:55.839415', "updated_at" = '2011-06-06 14:10:55.840093' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.8ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89311350__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.9ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:05:56.133333') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (6.5ms)
+  [1m[36mUser Load (7.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (171.0ms)
+Completed 200 OK in 453ms (Views: 164.1ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:12:27 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:12:27.882821', "updated_at" = '2011-06-06 14:12:27.883560' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725__616496438__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.9ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:07:28.237787') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.5ms)
+  [1m[35mUser Load (7.6ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (125.5ms)
+Completed 200 OK in 448ms (Views: 118.9ms | ActiveRecord: 16.6ms)
+
+
+Started POST "/games/1/comment" for 127.0.0.1 at 2011-06-06 17:13:23 +0300
+  Processing by GamesController#comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j/1jPm8J0Z6PgYiEUdX0B4QH+Mpdq1wmtCseU9laP3E=", "comment"=>{"title"=>"test again", "comment"=>"h1. Give RedCloth a try!\r\nh2. Give RedCloth a try!\r\nh3. Give RedCloth a try!\r\nh4. Give RedCloth a try!\r\n*Give RedCloth a try!*\r\n\r\nA *simple* paragraph with\r\na line break, some _emphasis_ and a \"link\":http://redcloth.org\r\n\r\n\r\n* an item\r\n* and another\r\n\r\n# one\r\n# two\r\n\r\n"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:13:23.540385', "updated_at" = '2011-06-06 14:13:23.541442' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (4.5ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  INSERT INTO "comments" ("title", "comment", "commentable_id", "commentable_type", "user_id", "created_at", "updated_at") VALUES ('test again', 'h1. Give RedCloth a try!
+h2. Give RedCloth a try!
+h3. Give RedCloth a try!
+h4. Give RedCloth a try!
+*Give RedCloth a try!*
+
+A *simple* paragraph with
+a line break, some _emphasis_ and a "link":http://redcloth.org
+
+
+* an item
+* and another
+
+# one
+# two
+
+', NULL, NULL, 9, '2011-06-06 14:13:23.768272', '2011-06-06 14:13:23.768272')
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "comments" SET "commentable_id" = 1, "commentable_type" = 'Game', "updated_at" = '2011-06-06 14:13:23.898934' WHERE "comments"."id" = 22[0m
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 537ms
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:13:23 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (7.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:13:24.179745', "updated_at" = '2011-06-06 14:13:24.180755' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89860370__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:08:24.531936') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (7.3ms)
+  [1m[36mUser Load (7.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (194.6ms)
+Completed 200 OK in 514ms (Views: 188.9ms | ActiveRecord: 32.2ms)
+
+
+Started POST "/games/1/comment" for 127.0.0.1 at 2011-06-06 17:14:28 +0300
+  Processing by GamesController#comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j/1jPm8J0Z6PgYiEUdX0B4QH+Mpdq1wmtCseU9laP3E=", "comment"=>{"title"=>"try", "comment"=>"h1. Give RedCloth a try!\r\n\r\nh2. Give RedCloth a try!\r\n\r\nh3. Give RedCloth a try!\r\n\r\n*Give RedCloth a try!*\r\n"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:14:28.739456', "updated_at" = '2011-06-06 14:14:28.740136' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "comments" ("title", "comment", "commentable_id", "commentable_type", "user_id", "created_at", "updated_at") VALUES ('try', 'h1. Give RedCloth a try!
+
+h2. Give RedCloth a try!
+
+h3. Give RedCloth a try!
+
+*Give RedCloth a try!*
+', NULL, NULL, 9, '2011-06-06 14:14:28.868302', '2011-06-06 14:14:28.868302')[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "comments" SET "commentable_id" = 1, "commentable_type" = 'Game', "updated_at" = '2011-06-06 14:14:29.045669' WHERE "comments"."id" = 23
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 528ms
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:14:29 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:14:29.255853', "updated_at" = '2011-06-06 14:14:29.256527' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (0.9ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96220130__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (3.2ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:09:29.576437') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (6.8ms)
+  [1m[36mUser Load (65.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (200.2ms)
+Completed 200 OK in 465ms (Views: 135.6ms | ActiveRecord: 77.7ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:14:51 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:14:51.634846', "updated_at" = '2011-06-06 14:14:51.635773' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_90281700__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:09:51.966049') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.6ms)
+  [1m[35mUser Load (8.0ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (196.6ms)
+Completed 200 OK in 500ms (Views: 191.4ms | ActiveRecord: 18.0ms)
+
+
+Started POST "/games/1/comment" for 127.0.0.1 at 2011-06-06 17:15:18 +0300
+  Processing by GamesController#comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j/1jPm8J0Z6PgYiEUdX0B4QH+Mpdq1wmtCseU9laP3E=", "comment"=>{"title"=>"another test", "comment"=>"sdoksd\r\ns\r\n\r\n\r\nsdsd\r\n\r\nsdf"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:15:18.378435', "updated_at" = '2011-06-06 14:15:18.379287' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.3ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "comments" ("title", "comment", "commentable_id", "commentable_type", "user_id", "created_at", "updated_at") VALUES ('another test', 'sdoksd
+s
+
+
+sdsd
+
+sdf', NULL, NULL, 9, '2011-06-06 14:15:18.523303', '2011-06-06 14:15:18.523303')
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "comments" SET "commentable_id" = 1, "commentable_type" = 'Game', "updated_at" = '2011-06-06 14:15:18.705706' WHERE "comments"."id" = 24[0m
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 579ms
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:15:18 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:15:18.999222', "updated_at" = '2011-06-06 14:15:19.000019' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (3.0ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96608580__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:10:19.398756') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.9ms)
+  [1m[35mUser Load (8.8ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (203.3ms)
+Completed 200 OK in 555ms (Views: 197.3ms | ActiveRecord: 21.9ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:15:40 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:15:40.653362', "updated_at" = '2011-06-06 14:15:40.654345' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.5ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 10
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96246760__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:10:40.999120') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (6.4ms)
+  [1m[36mUser Load (59.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (201.6ms)
+Completed 200 OK in 507ms (Views: 145.0ms | ActiveRecord: 69.5ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:16:40 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:16:40.463017', "updated_at" = '2011-06-06 14:16:40.463701' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (0.9ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, id desc[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89983320__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:11:40.783874') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (7.5ms)
+  [1m[36mUser Load (7.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (191.9ms)
+Completed 200 OK in 487ms (Views: 184.9ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:16:58 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:16:59.014717', "updated_at" = '2011-06-06 14:16:59.015531' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.8ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, id desc[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89568930__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:11:59.395164') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (6.6ms)
+  [1m[36mUser Load (7.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (214.1ms)
+Completed 200 OK in 548ms (Views: 208.4ms | ActiveRecord: 18.7ms)
+  [1m[36mGame Load (1.2ms)[0m  [1mSELECT "games".* FROM "games" LIMIT 1[0m
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC[0m
+  [1m[35mComment Load (1.1ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, 1
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, id desc[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC LIMIT 1
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 1[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 1
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC LIMIT 1
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC LIMIT 10[0m
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC LIMIT 1
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, created_at DESC LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, created_at DESC LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, id DESC LIMIT 1[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, id DESC LIMIT 1
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, id DESC[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, id DESCE
+SQLite3::SQLException: near "DESCE": syntax error: SELECT "comments".* FROM "comments" ORDER BY created_at ASC, id DESCE
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, id DESC[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, isd DESC
+SQLite3::SQLException: no such column: isd: SELECT "comments".* FROM "comments" ORDER BY created_at ASC, isd DESC
+  [1m[36mComment Load (1.2ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, id DESC[0m
+  [1m[35mComment Load (1.1ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, id DESC
+  [1m[36mComment Load (1.2ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, user_id[0m
+  [1m[35mComment Load (1.1ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, user_id
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, user_id[0m
+  [1m[35mComment Load (1.1ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, user_id
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, user_id DESC[0m
+  [1m[35mComment Load (0.6ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, user_id DESC LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, user_id DESC LIMIT 1[0m
+  [1m[35mComment Load (1.1ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, created_at desc LIMIT 10
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, created_at desc LIMIT 1[0m
+  [1m[35mUser Load (4.3ms)[0m  SELECT "users".* FROM "users" ORDER BY id desc
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY id desc LIMIT 1[0m
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" ORDER BY id desc LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, id desc LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, id desc LIMIT 1
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments" ORDER BY created_at ASC, id desc LIMIT 1[0m
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" ORDER BY created_at ASC, id desc LIMIT 1
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at ASC, created_at DESC LIMIT 1[0m
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:30:38 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:30:38.406933', "updated_at" = '2011-06-06 14:30:38.407877' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725__616387318__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (3.0ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:25:38.778734') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (7.2ms)
+  [1m[36mUser Load (9.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (167.7ms)
+Completed 200 OK in 473ms (Views: 161.9ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/games/2" for 192.168.1.102 at 2011-06-06 17:31:24 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:31:24.163087', "updated_at" = '2011-06-06 14:31:24.163897' WHERE "users"."id" = 6[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (5.0ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 2 LIMIT 1
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 2 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 2 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96733960__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:32)
+Rendered partials/_logininfo.html.erb (4.3ms)
+  [1m[35mUser Load (2.8ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:26:24.452931') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (12.1ms)
+  [1m[36mUser Load (7.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (94.3ms)
+Completed 200 OK in 394ms (Views: 91.0ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/" for 192.168.1.102 at 2011-06-06 17:31:26 +0300
+  Processing by MainController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:31:27.108660', "updated_at" = '2011-06-06 14:31:27.109505' WHERE "users"."id" = 6[0m
+[paperclip] Saving attachments.
+Rendered partials/_logininfo.html.erb (3.9ms)
+  [1m[35mUser Load (2.8ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:26:27.222933') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (13.0ms)
+  [1m[36mUser Load (9.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered main/index.html.erb within layouts/application (47.4ms)
+Completed 200 OK in 282ms (Views: 44.3ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/" for 192.168.1.102 at 2011-06-06 17:31:27 +0300
+  Processing by MainController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:31:27.427723', "updated_at" = '2011-06-06 14:31:27.428543' WHERE "users"."id" = 6[0m
+[paperclip] Saving attachments.
+Rendered partials/_logininfo.html.erb (3.9ms)
+  [1m[35mUser Load (2.9ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:26:27.536618') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (13.0ms)
+  [1m[36mUser Load (9.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered main/index.html.erb within layouts/application (48.2ms)
+Completed 200 OK in 271ms (Views: 48.4ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/games" for 192.168.1.102 at 2011-06-06 17:31:44 +0300
+  Processing by GamesController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:31:45.006200', "updated_at" = '2011-06-06 14:31:45.007051' WHERE "users"."id" = 6[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games"
+Rendered partials/_logininfo.html.erb (3.8ms)
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:26:45.145784') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (13.0ms)
+  [1m[35mUser Load (66.7ms)[0m  SELECT "users".* FROM "users"
+Rendered games/index.html.erb within layouts/application (134.9ms)
+Completed 200 OK in 360ms (Views: 74.4ms | ActiveRecord: 72.0ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:32:24 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.7ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:32:24.982589', "updated_at" = '2011-06-06 14:32:24.983392' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (2.1ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_97248850__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:27:25.335267') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (10.3ms)
+  [1m[35mUser Load (7.5ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (159.4ms)
+Completed 200 OK in 465ms (Views: 154.1ms | ActiveRecord: 19.5ms)
+
+
+Started POST "/games/1/comment" for 127.0.0.1 at 2011-06-06 17:33:20 +0300
+  Processing by GamesController#comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j/1jPm8J0Z6PgYiEUdX0B4QH+Mpdq1wmtCseU9laP3E=", "comment"=>{"title"=>"hehe", "comment"=>"!http://www.w3.org/Icons/valid-html401(This page is valid HTML)!"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:33:20.864132', "updated_at" = '2011-06-06 14:33:20.864822' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.5ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.7ms)[0m  INSERT INTO "comments" ("title", "comment", "commentable_id", "commentable_type", "user_id", "created_at", "updated_at") VALUES ('hehe', '!http://www.w3.org/Icons/valid-html401(This page is valid HTML)!', NULL, NULL, 9, '2011-06-06 14:33:21.016360', '2011-06-06 14:33:21.016360')
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "comments" SET "commentable_id" = 1, "commentable_type" = 'Game', "updated_at" = '2011-06-06 14:33:21.136826' WHERE "comments"."id" = 25[0m
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 494ms
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:33:21 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:33:21.421198', "updated_at" = '2011-06-06 14:33:21.421879' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725__616336748__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:28:21.741778') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (10.6ms)
+  [1m[35mUser Load (8.3ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (153.1ms)
+Completed 200 OK in 428ms (Views: 145.2ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:35:05 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:35:05.750161', "updated_at" = '2011-06-06 14:35:05.751012' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.4ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_97226300__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (3.5ms)
+  [1m[35mUser Load (3.0ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:30:06.116000') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (14.6ms)
+  [1m[36mUser Load (10.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (198.0ms)
+Completed 200 OK in 490ms (Views: 187.9ms | ActiveRecord: 23.6ms)
+
+
+Started POST "/games/1/comment" for 127.0.0.1 at 2011-06-06 17:37:29 +0300
+  Processing by GamesController#comment as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j/1jPm8J0Z6PgYiEUdX0B4QH+Mpdq1wmtCseU9laP3E=", "comment"=>{"title"=>"Gmail", "comment"=>"_Plagio Keimeno_ *entono keimeno*\r\n\r\nh1. Header\r\n\r\n\"Google(link gia to google)\":http://www.google.com"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:37:29.739009', "updated_at" = '2011-06-06 14:37:29.739694' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "comments" ("title", "comment", "commentable_id", "commentable_type", "user_id", "created_at", "updated_at") VALUES ('Gmail', '_Plagio Keimeno_ *entono keimeno*
+
+h1. Header
+
+"Google(link gia to google)":http://www.google.com', NULL, NULL, 9, '2011-06-06 14:37:29.875006', '2011-06-06 14:37:29.875006')[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE "comments" SET "commentable_id" = 1, "commentable_type" = 'Game', "updated_at" = '2011-06-06 14:37:30.009316' WHERE "comments"."id" = 26
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 495ms
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:37:30 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:37:30.294526', "updated_at" = '2011-06-06 14:37:30.295341' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.4ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725__616336448__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:32:30.659388') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.5ms)
+  [1m[35mUser Load (8.7ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (160.6ms)
+Completed 200 OK in 468ms (Views: 155.2ms | ActiveRecord: 22.0ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:38:52 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:38:52.956556', "updated_at" = '2011-06-06 14:38:52.957483' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.4ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+Rendered games/show.html.erb within layouts/application (44.2ms)
+Completed   in 331ms
+
+ActionView::Template::Error (undefined method `filter_images=' for class `RedCloth::TextileDoc'):
+    26: 					<p>by <%= link_to comment.user.username, comment.user %> at <%=comment.created_at.strftime("%a %e, %b %Y %H:%M") %></p>
+    27: 				</div>
+    28: 				<div class="cbody">
+    29: 				<%= sanitize(RedCloth.new(comment.comment, [:filter_styles, :filter_html, :filter_images]).to_html) %>
+    30: 				</div>
+    31: 				</section>
+    32: <% end %>
+  app/views/games/show.html.erb:29:in `block in _app_views_games_show_html_erb__270058725_97231470__260508317'
+  app/views/games/show.html.erb:21:in `each'
+  app/views/games/show.html.erb:21:in `_app_views_games_show_html_erb__270058725_97231470__260508317'
+  app/controllers/games_controller.rb:22:in `show'
+
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (27.4ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:39:05 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:39:05.987582', "updated_at" = '2011-06-06 14:39:05.988396' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.5ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+Rendered games/show.html.erb within layouts/application (90.1ms)
+Completed   in 387ms
+
+ActionView::Template::Error (undefined method `filter_image=' for class `RedCloth::TextileDoc'):
+    26: 					<p>by <%= link_to comment.user.username, comment.user %> at <%=comment.created_at.strftime("%a %e, %b %Y %H:%M") %></p>
+    27: 				</div>
+    28: 				<div class="cbody">
+    29: 				<%= sanitize(RedCloth.new(comment.comment, [:filter_styles, :filter_html, :filter_image]).to_html) %>
+    30: 				</div>
+    31: 				</section>
+    32: <% end %>
+  app/views/games/show.html.erb:29:in `block in _app_views_games_show_html_erb__270058725_89852800__260508317'
+  app/views/games/show.html.erb:21:in `each'
+  app/views/games/show.html.erb:21:in `_app_views_games_show_html_erb__270058725_89852800__260508317'
+  app/controllers/games_controller.rb:22:in `show'
+
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.9ms)
+Rendered /home/nick/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (19.8ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:43:41 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:43:41.476504', "updated_at" = '2011-06-06 14:43:41.477486' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (1.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.4ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96676350__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:38:41.843968') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.6ms)
+  [1m[35mUser Load (58.4ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (211.4ms)
+Completed 200 OK in 531ms (Views: 155.6ms | ActiveRecord: 70.0ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:45:51 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:45:51.876264', "updated_at" = '2011-06-06 14:45:51.876950' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.5ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.3ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96077760__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (3.2ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:40:52.259972') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (7.5ms)
+  [1m[35mUser Load (10.0ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (245.2ms)
+Completed 200 OK in 541ms (Views: 237.6ms | ActiveRecord: 20.7ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:46:39 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:46:39.512410', "updated_at" = '2011-06-06 14:46:39.513808' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.6ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89874930__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:41:39.883140') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.4ms)
+  [1m[35mUser Load (7.8ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (235.5ms)
+Completed 200 OK in 542ms (Views: 230.3ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:49:21 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:49:21.787322', "updated_at" = '2011-06-06 14:49:21.788105' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.4ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (1.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89287360__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:44:22.147450') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.5ms)
+  [1m[35mUser Load (7.6ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (228.8ms)
+Completed 200 OK in 516ms (Views: 223.5ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/games/1/edit" for 127.0.0.1 at 2011-06-06 17:49:42 +0300
+  Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:49:42.150919', "updated_at" = '2011-06-06 14:49:42.151714' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+Rendered games/_form.html.erb (92.3ms)
+Rendered partials/_logininfo.html.erb (3.7ms)
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:44:42.359208') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (7.9ms)
+  [1m[36mUser Load (9.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/edit.html.erb within layouts/application (138.5ms)
+Completed 200 OK in 312ms (Views: 136.5ms | ActiveRecord: 13.3ms)
+
+
+Started POST "/games/1" for 127.0.0.1 at 2011-06-06 17:51:26 +0300
+  Processing by GamesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j/1jPm8J0Z6PgYiEUdX0B4QH+Mpdq1wmtCseU9laP3E=", "game"=>{"name"=>"Connect 4", "smallname"=>"connect4", "statement"=>"bq. Wikipedia wrote:\r\nConnect 4 is a two-player game in which the players first choose a color and then take turns dropping their colored discs from the top into a seven-column, six-row vertically-suspended grid. The pieces fall straight down, occupying the next available space within the column. The object of the game is to connect four of one's own discs of the same color next to each other vertically, horizontally, or diagonally before one's opponent can do so.\r\n\r\nIn this task you are asked to implement a program that plays connect 4.", "inputdetails"=>"Opponents move", "outputdetails"=>"Your move", "requirements"=>"1 sec per game", "author"=>"Christos"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:51:26.589969', "updated_at" = '2011-06-06 14:51:26.590872' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "games" SET "statement" = 'bq. Wikipedia wrote:
+Connect 4 is a two-player game in which the players first choose a color and then take turns dropping their colored discs from the top into a seven-column, six-row vertically-suspended grid. The pieces fall straight down, occupying the next available space within the column. The object of the game is to connect four of one''s own discs of the same color next to each other vertically, horizontally, or diagonally before one''s opponent can do so.
+
+In this task you are asked to implement a program that plays connect 4.', "updated_at" = '2011-06-06 14:51:26.704580' WHERE "games"."id" = 1[0m
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 309ms
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:51:26 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:51:26.958962', "updated_at" = '2011-06-06 14:51:26.959771' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC[0m
+  [1m[35mSQL (1.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_89041630__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:46:27.313286') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (7.0ms)
+  [1m[36mUser Load (8.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (220.9ms)
+Completed 200 OK in 515ms (Views: 214.8ms | ActiveRecord: 21.0ms)
+
+
+Started GET "/games/1/edit" for 127.0.0.1 at 2011-06-06 17:51:49 +0300
+  Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:51:50.070030', "updated_at" = '2011-06-06 14:51:50.070704' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+Rendered games/_form.html.erb (71.3ms)
+Rendered partials/_logininfo.html.erb (3.5ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:46:50.260995') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.6ms)
+  [1m[35mUser Load (7.0ms)[0m  SELECT "users".* FROM "users"
+Rendered games/edit.html.erb within layouts/application (107.6ms)
+Completed 200 OK in 286ms (Views: 106.2ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-06 17:52:04 +0300
+  Processing by MainController#index as HTML
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:52:04.498841', "updated_at" = '2011-06-06 14:52:04.499784' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+Rendered partials/_logininfo.html.erb (3.5ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:47:04.599297') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (6.9ms)
+  [1m[35mUser Load (8.4ms)[0m  SELECT "users".* FROM "users"
+Rendered main/index.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 262ms (Views: 33.9ms | ActiveRecord: 13.1ms)
+
+
+Started POST "/games/1" for 127.0.0.1 at 2011-06-06 17:52:16 +0300
+  Processing by GamesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j/1jPm8J0Z6PgYiEUdX0B4QH+Mpdq1wmtCseU9laP3E=", "game"=>{"name"=>"Connect 4", "smallname"=>"connect4", "statement"=>"bq. \"Wikipedia\":http://en.wikipedia.org/wiki/Connect_Four wrote:\r\nConnect 4 is a two-player game in which the players first choose a color and then take turns dropping their colored discs from the top into a seven-column, six-row vertically-suspended grid. The pieces fall straight down, occupying the next available space within the column. The object of the game is to connect four of one's own discs of the same color next to each other vertically, horizontally, or diagonally before one's opponent can do so.\r\n\r\nIn this task you are asked to implement a program that plays connect 4.", "inputdetails"=>"Opponents move", "outputdetails"=>"Your move", "requirements"=>"1 sec per game", "author"=>"Christos"}, "commit"=>"Submit", "id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:52:16.189983', "updated_at" = '2011-06-06 14:52:16.190982' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.6ms)[0m  UPDATE "games" SET "statement" = 'bq. "Wikipedia":http://en.wikipedia.org/wiki/Connect_Four wrote:
+Connect 4 is a two-player game in which the players first choose a color and then take turns dropping their colored discs from the top into a seven-column, six-row vertically-suspended grid. The pieces fall straight down, occupying the next available space within the column. The object of the game is to connect four of one''s own discs of the same color next to each other vertically, horizontally, or diagonally before one''s opponent can do so.
+
+In this task you are asked to implement a program that plays connect 4.', "updated_at" = '2011-06-06 14:52:16.326604' WHERE "games"."id" = 1
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 350ms
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:52:16 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:52:16.602342', "updated_at" = '2011-06-06 14:52:16.603181' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.5ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.4ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725__616364158__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (3.5ms)
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:47:17.000736') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (8.2ms)
+  [1m[35mUser Load (9.9ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (201.1ms)
+Completed 200 OK in 563ms (Views: 193.7ms | ActiveRecord: 20.8ms)
+
+
+Started GET "/games" for 192.168.1.102 at 2011-06-06 17:53:18 +0300
+  Processing by GamesController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:53:19.115215', "updated_at" = '2011-06-06 14:53:19.116027' WHERE "users"."id" = 6
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.5ms)[0m  [1mSELECT "games".* FROM "games"[0m
+Rendered partials/_logininfo.html.erb (3.8ms)
+  [1m[35mUser Load (2.9ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:48:19.324204') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (13.0ms)
+  [1m[36mUser Load (10.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/index.html.erb within layouts/application (128.3ms)
+Completed 200 OK in 319ms (Views: 124.3ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/games/1" for 192.168.1.102 at 2011-06-06 17:53:19 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:53:19.479257', "updated_at" = '2011-06-06 14:53:19.480071' WHERE "users"."id" = 6[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96341500__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[35mUser Load (2.7ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:48:19.913505') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (14.1ms)
+  [1m[36mUser Load (8.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (233.8ms)
+Completed 200 OK in 539ms (Views: 226.9ms | ActiveRecord: 19.6ms)
+
+
+Started GET "/games/1" for 192.168.1.102 at 2011-06-06 17:53:20 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:53:20.846370', "updated_at" = '2011-06-06 14:53:20.847200' WHERE "users"."id" = 6[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.5ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96674280__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[35mUser Load (2.2ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:48:21.204709') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (59.4ms)
+  [1m[36mUser Load (8.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (217.0ms)
+Completed 200 OK in 512ms (Views: 211.1ms | ActiveRecord: 18.8ms)
+
+
+Started GET "/games/1" for 192.168.1.102 at 2011-06-06 17:53:21 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:53:22.035170', "updated_at" = '2011-06-06 14:53:22.036027' WHERE "users"."id" = 6[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (1.1ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_96737690__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.8ms)
+  [1m[35mUser Load (2.2ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:48:22.407825') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (10.3ms)
+  [1m[36mUser Load (58.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (237.7ms)
+Completed 200 OK in 528ms (Views: 180.3ms | ActiveRecord: 70.8ms)
+
+
+Started GET "/games/1" for 192.168.1.102 at 2011-06-06 17:53:22 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:53:22.585509', "updated_at" = '2011-06-06 14:53:22.586183' WHERE "users"."id" = 6[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (4.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_97009700__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[35mUser Load (2.3ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:48:22.942803') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (10.3ms)
+  [1m[36mUser Load (58.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (222.9ms)
+Completed 200 OK in 497ms (Views: 166.4ms | ActiveRecord: 72.7ms)
+
+
+Started GET "/games/1" for 192.168.1.102 at 2011-06-06 17:53:23 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:53:23.117830', "updated_at" = '2011-06-06 14:53:23.118520' WHERE "users"."id" = 6[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+  [1m[36mComment Load (1.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725_97242500__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (2.7ms)
+  [1m[35mUser Load (2.2ms)[0m  SELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:48:23.464186') ORDER BY last_request_at DESC LIMIT 6
+Rendered partials/_onlineusers.html.erb (10.3ms)
+  [1m[36mUser Load (55.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered games/show.html.erb within layouts/application (210.7ms)
+Completed 200 OK in 486ms (Views: 157.5ms | ActiveRecord: 65.6ms)
+
+
+Started GET "/games/1/edit" for 127.0.0.1 at 2011-06-06 17:53:33 +0300
+  Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.5ms)[0m  [1mUPDATE "users" SET "last_request_at" = '2011-06-06 14:53:33.537644', "updated_at" = '2011-06-06 14:53:33.538465' WHERE "users"."id" = 9[0m
+[paperclip] Saving attachments.
+  [1m[35mGame Load (0.4ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1
+Rendered games/_form.html.erb (96.0ms)
+Rendered partials/_logininfo.html.erb (4.0ms)
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:48:33.772535') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (13.7ms)
+  [1m[35mUser Load (10.0ms)[0m  SELECT "users".* FROM "users"
+Rendered games/edit.html.erb within layouts/application (151.2ms)
+Completed 200 OK in 354ms (Views: 147.8ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2011-06-06 17:53:51 +0300
+  Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "users" SET "last_request_at" = '2011-06-06 14:53:51.236232', "updated_at" = '2011-06-06 14:53:51.237028' WHERE "users"."id" = 9
+[paperclip] Saving attachments.
+  [1m[36mGame Load (0.4ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = 1 LIMIT 1[0m
+  [1m[35mComment Load (1.6ms)[0m  SELECT "comments".* FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game') ORDER BY created_at DESC
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE ("comments".commentable_id = 1 AND "comments".commentable_type = 'Game')[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_games_show_html_erb__270058725__616103368__260508317 at /home/nick/Desktop/Phaeton/app/views/games/show.html.erb:34)
+Rendered partials/_logininfo.html.erb (3.4ms)
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE (last_request_at > '2011-06-06 14:48:51.630825') ORDER BY last_request_at DESC LIMIT 6[0m
+Rendered partials/_onlineusers.html.erb (12.8ms)
+  [1m[35mUser Load (9.4ms)[0m  SELECT "users".* FROM "users"
+Rendered games/show.html.erb within layouts/application (207.5ms)
+Completed 200 OK in 505ms (Views: 199.2ms | ActiveRecord: 21.7ms)

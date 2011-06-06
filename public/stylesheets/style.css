@@ -411,7 +411,7 @@ footer {
 	}
 
 /* Shadow-Boxes*/
-#c, .meta, .s {
+#c, .meta, .s, .comment {
 	-moz-border-radius : 4px;
 	-webkit-border-radius : 4px;
 	-moz-box-shadow : 0 2px 2px rgba(0,0,0,0.3);
@@ -443,6 +443,61 @@ footer {
 			font-size : 10px;
 			margin : 0;
 		}
+	.comment {
+		margin : 3px 0 20px;
+		padding : 2px 10px;
+		}
+		.comment p, .comment a {
+			font-size : 10px;
+			margin : 0;
+		}
+		.comment p.ctitle {
+			font-size : 15px;
+			margin : 10px 0 0;
+		}
+		.comment div.chead {
+			height : 50px;
+			border-bottom : 1px dotted #B5B3A9;
+		}
+		.comment div.cbody {
+			padding: 0 5px;
+			overflow: hidden;
+		}
+		.chead img {
+			margin: 0 10px 0 0;
+		}
+		.cbody img {
+			float: none;
+			margin:0;
+		}
+		
+		.comment h1, .comment h2, .comment h3, .comment h4, .comment h5, .comment .h6 {
+			background : none;
+			border-bottom : none;
+			color : #333;
+			font-weight : bold;
+			margin : 3px 0 5px;
+			padding : 0;
+		}
+		.comment ol, .comment ul {
+			margin : 0;
+			padding : 0;
+		}
+		.comment ol {
+			padding: 0 0 0 17px;
+		}
+			.comment H1 {
+				font-size : 16px;
+			}
+			.comment H2 {
+				font-size : 14px;
+			}
+			.comment H3 {
+				font-size : 12px;
+			}
+			.comment H4, .comment H5, .comment H6 {
+				font-size : 10px;
+			}
 
 #topmenu {width:100%; background: #12A1C9 url(../images/headerbg.png) repeat-x;border-bottom:3px solid #78B527;height:25px; z-index:5;}
 	

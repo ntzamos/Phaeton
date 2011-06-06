@@ -17,7 +17,7 @@ class GamesController < ApplicationController
   # GET /games/1.xml
   def show
     @game = Game.find(params[:id])
-		@comments = @game.comments.recent.limit(10).all
+		@comments = @game.comments.all
 		
     respond_to do |format|
       format.html # show.html.erb

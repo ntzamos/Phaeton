@@ -11,6 +11,7 @@ gem 'cancan'
 gem 'jrails'
 gem 'paperclip'
 gem 'acts_as_commentable'
+gem 'RedCloth'
 #gem 'will_paginate'
 
 # Use unicorn as the web server
