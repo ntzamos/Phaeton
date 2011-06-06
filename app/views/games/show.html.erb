@@ -16,30 +16,22 @@
 				<h3>Requirements</h3>
 				<%= sanitize(RedCloth.new(@game.requirements, [:filter_styles, :filter_html, :filter_classes, :filter_ids]).to_html) %>
 
-<h4 id="comments">Comments</h4>
+<h4 id="submit">Submit your code</h4>
 
-<% for comment in @comments %>
-<section class="comment">
-				<div class="chead">
-					<%= link_to image_tag(comment.user.photo.url(:thumb), :title => comment.user.username), comment.user %>
-					<p class="ctitle"><b><%= comment.title %></b></p>
-					<p>by <%= link_to comment.user.username, comment.user %> at <%=comment.created_at.strftime("%a %e, %b %Y %H:%M") %></p>
-				</div>
-				<div class="cbody">
-				<%= sanitize(RedCloth.new(comment.comment, [:filter_styles, :filter_html, :filter_classes, :filter_ids]).to_html) %>
-				</div>
-				</section>
+<% form_for(Source.new(:game => @game) ) do |f| %>
+		<%= f.hidden_field :game_id %>
+    <%= f.label :language %>
+    <%= f.select(:language, options_for_select([['C', 'c'], ['C++', 'cpp'], ['Pascal', 'pas']], 'c')) %>
+    <%= f.label :code %>
+    <%= f.text_area :code%>
+  <br/>
+
+  <%= f.submit "Submit", :class => 'button' %>  
 <% end %>
 
-<% form_for([@game, Comment.new],  :url => comment_game_path) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    
-    <%= f.label :comment %>
-    <%= f.text_area :comment %>
-    <br/>
-    <%= f.submit "Submit", :class => 'button' %>
-<% end %>
+
+<%= render :partial => "partials/comments" %>
+
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

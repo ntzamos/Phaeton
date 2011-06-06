@@ -4,7 +4,8 @@ Testsite::Application.routes.draw do
       post 'comment'
     end
   end
-
+  resources :sources
+	
   devise_for :users
 
 	# The priority is based upon order of creation:
