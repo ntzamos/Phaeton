@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
-  uses_tiny_mce(:options => AppConfig.default_mce_options, :only => [:new, :edit])
+  before_filter :authenticate_user!, :except => [:index, :show]
+  
+  
   # GET /games
   # GET /games.xml
   def index
@@ -15,7 +17,8 @@ class GamesController < ApplicationController
   # GET /games/1.xml
   def show
     @game = Game.find(params[:id])
-
+		@comments = @game.comments.recent.limit(10).all
+		
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @game }
@@ -50,6 +53,25 @@ class GamesController < ApplicationController
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @game.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+  # POST /games/1/comment
+  # POST /games/1/comment.xml
+  def comment
+    @game = Game.find(params[:id])
+    @comment = Comment.new(params[:comment])
+    @comment.user = current_user
+    respond_to do |format|
+      if @comment.save
+      	@game.comments << @comment
+        format.html { redirect_to(@game, :notice => 'Comment was added.') }
+        format.xml  { render :xml => @comment, :status => :created, :location => @game }
+      else
+      	puts @comment.errors.inspect
+        format.html { redirect_to(@game, :alert => @comment.errors.map {|x,y| x.to_s.camelize + " " + y}.join(' / ') ) }
+        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.7)
       activesupport (= 3.0.7)
     activesupport (3.0.7)
+    acts_as_commentable (3.0.1)
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
@@ -77,16 +78,15 @@ GEM
     tzinfo (0.3.27)
     warden (1.0.4)
       rack (>= 1.0)
-    will_paginate (2.3.15)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_commentable
   cancan
   devise
   jrails
   paperclip
   rails (= 3.0.7)
   sqlite3
-  will_paginate

@@ -10,7 +10,8 @@ gem 'devise'
 gem 'cancan'
 gem 'jrails'
 gem 'paperclip'
-gem 'will_paginate'
+gem 'acts_as_commentable'
+#gem 'will_paginate'
 
 # Use unicorn as the web server
 # gem 'unicorn'

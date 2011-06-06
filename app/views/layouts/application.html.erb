@@ -4,7 +4,6 @@
   <title>Phaeton</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :all %>
-<%= javascript_include_tiny_mce_if_used %> <%= tiny_mce if using_tiny_mce? %>
   <%= csrf_meta_tag %>
   <script type='text/javascript'> 
 	jQuery(document).ready(function($){
@@ -53,18 +52,8 @@
 				
 				<%= render :partial => "partials/logininfo" %>
 				
+				<%= render :partial => "partials/onlineusers" %>
 				
-				<h4>Online Users</h4>
-				<ul class="gallery">
-					<li><a href="index.html"><%=image_tag("jonas-jacek.png")%></a></li>
-					<li><a href="index.html"><%=image_tag("img2.png")%></a></li>
-					<li><a href="index.html"><%=image_tag("img3.png")%></a></li>
-				</ul>
-				<ul class="gallery">
-					<li><a href="index.html"><%=image_tag("img4.png")%></a></li>
-					<li><a href="index.html"><%=image_tag("img5.png")%></a></li>
-					<li><a href="index.html"><%=image_tag("img6.png")%></a></li>
-				</ul>
 				<h4>Sponsors</h4> 
 				<div class="adspace"> 
 					<a href="http://www.jabz.biz/" rel="me"><%=image_tag("jabz-logo.png")%></a> 
@@ -78,6 +67,11 @@
 					<li class="tagcloudsize-2"><a href="#">Sit Amet</a></li>
 					<li class="tagcloudsize-1"><a href="#">Consectetur</a></li>
 				</ul> 
+				<h4>Index</h4>
+				<h2>List of Users</h2>
+				<% for user in User.all %>
+					<h3><%= link_to user.username, user %></h3>
+				<% end %>
 				
 			</aside>
 		</div>

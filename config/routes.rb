@@ -1,5 +1,9 @@
 Testsite::Application.routes.draw do
-  resources :games
+  resources :games do
+  	member do
+      post 'comment'
+    end
+  end
 
   devise_for :users
 
