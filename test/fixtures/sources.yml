@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  game: 
+  language: 
+  code: MyText
+  active: 
+  result: 
+
+two:
+  user: 
+  game: 
+  language: 
+  code: MyText
+  active: 
+  result: 

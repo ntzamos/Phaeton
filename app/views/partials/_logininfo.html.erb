@@ -1,8 +1,10 @@
 		<% if user_signed_in? %>
 
 <div id="c">
-					<p>Logged in as <%= link_to current_user.username, current_user %></p>
-					<%= link_to "Sign out", destroy_user_session_path %> | <%= link_to "Edit Account", edit_user_registration_path %>
+					<p><%= link_to image_tag(current_user.photo.url(:thumb), :title => current_user.username), current_user %></p>
+					<p>User: <%= link_to current_user.username, current_user %></p>
+					<p>Solved: 150</p>
+					<p><%= link_to "Log out", destroy_user_session_path %> | <%= link_to "Edit", edit_user_registration_path %></p>
 				</div>
 
 		<% else %>
